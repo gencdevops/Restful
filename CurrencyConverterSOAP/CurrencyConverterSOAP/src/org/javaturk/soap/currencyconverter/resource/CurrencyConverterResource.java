@@ -15,4 +15,17 @@ import org.javaturk.soap.currencyconverter.domain.Currency;
 
 //@WebService(targetNamespace="http://www.javaturk.org", portName="CurrencyConverterPort")
 //@WebService(endpointInterface="CurrencyConverterService")
+@WebService(targetNamespace="http://www.javaturk.org")
+public class CurrencyConverterResource implements CurrencyConverterService{
+	private CurrencyConverter converter = new CurrencyConverterEngine();
+	private static Conversions conversions = new Conversions();
 
+	@Override
+	@WebMethod(action="convert-currency", operationName="currency-converter")
+	public Conversion convertByParam(@WebParam(name="Source-Currency") Currency sourceCurrency, @WebParam(name="Target-Currency")Currency targetCurrency, @WebParam(name="Amount")double amount) {
+		Conversion conversion = null;
+		double targetAmount = converter.convert(sourceCurrency, targetCurrency, amount);
+		conversion = new Conversion(sourceCurrency, targetCurrency, amount, targetAmount);
+		conversions.addConversion(conversion);
+		return conversion;
+	}
