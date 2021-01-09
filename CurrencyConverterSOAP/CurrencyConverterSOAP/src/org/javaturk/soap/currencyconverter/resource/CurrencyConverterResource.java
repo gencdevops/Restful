@@ -29,3 +29,10 @@ public class CurrencyConverterResource implements CurrencyConverterService{
 		conversions.addConversion(conversion);
 		return conversion;
 	}
+	@Override
+	@WebMethod(action="convert-currency-by-parameter", operationName="currency-converter-by-parameter")
+	public Conversion convertByObject(Conversion conversionParameter) {
+		Conversion conversion = converter.convert(conversionParameter);
+		conversions.addConversion(conversion);
+		return conversion;
+	}
