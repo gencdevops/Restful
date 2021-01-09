@@ -36,3 +36,19 @@ public class CurrencyConverterResource implements CurrencyConverterService{
 		conversions.addConversion(conversion);
 		return conversion;
 	}
+
+	@Override
+	@WebMethod(action="get-all-conversions", operationName="all-conversions")
+	public @WebResult(name="All-Conversions") Conversions getAllConversions() {
+		Conversions conversions = new Conversions();
+		conversions.setConversions(CurrencyConverterResource.conversions.getConversions());
+		return conversions;
+	}
+
+	@Override
+	@WebMethod(action="get-all-currencies", operationName="all-currencies")
+	public @WebResult(name="Currency-List") List<Currency> getAllCurrencies() {
+		return Currency.getCurrencyList();
+	}
+}
+
