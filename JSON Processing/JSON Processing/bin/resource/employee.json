@@ -1,0 +1,18 @@
+{
+	"name": "Kamil Ozturk",
+	"age": 33,
+	"department": "Development",
+	"salary": 7500,
+	"fullTime": true,
+	"bonus": null,
+	"phoneNumbers":[9988664422, 1234567890],
+	"address":{
+			"street":"Eski Buyukdere Cad. No 22/5",
+			"city":"Istanbul",
+			"zipcode":34456
+		},
+	"projects": [
+		"Fast Production",
+		"Refactoring"
+	]
+}

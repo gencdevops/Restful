@@ -1,0 +1,23 @@
+Download Tomcat 9 at
+https://tomcat.apache.org/download-90.cgi
+
+Unzip it anywhere you want.
+Make sure that a JDK or JRE which 8 or newer is available for Tomcat.
+
+Go to its bin directory and start it using startup script.
+
+Then go to http://localhost:8080 check to see its main page.
+
+Then try to go to its Server Status and Manager App applications.
+To be able to see related pages configure users in its conf/config.xml file. 
+
+Have a look at its configuration in conf/server.xml.
+Change the port for HTTP connector from 8080 to whatever you want such as 80 or 9090.
+ 
+******************************************************
+To use Tomcat with Eclipse just install it using Preferences => Server => Runtime Environments
+
+******************************************************
+
+
+

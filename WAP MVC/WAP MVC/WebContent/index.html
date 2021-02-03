@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+<meta charset="UTF-8">
+<title>WAP MVC</title>
+</head>
+<body>
+
+	<H1 ALIGN="CENTER">MVC Examples</H1>
+	<H2 ALIGN="CENTER">Below are Model-View-Controller (MVC) examples
+		using different technologies.</H2>
+	<P>Here are some links on MVC design pattern:
+	<UL>
+		<LI><a href="http://c2.com/cgi/wiki?ModelViewController"
+			target="_blank">c2.com</a></LI>
+		<LI><a
+			href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller"
+			target="_blank">Wikipedia</a></LI>
+		<LI><a href="http://martinfowler.com/eaaDev/uiArchs.html"
+			target="_blank">Martin Fowler</a></LI>
+		<LI><a
+			href="http://ptgmedia.pearsoncmg.com/imprint_downloads/informit/chap2_0672324725.pdf"
+			target="_blank">MVC and Model-2</a></LI>
+	</UL>
+	</UL>
+
+
+	<table style="width: 100%">
+		<tr>
+			<td>
+				<H4>
+					The use case is "Log into The System". Here are the steps regarding
+					how the use case is implemented:
+					<UL>
+						<LI>First a login form, shown at the right, is displayed.</LI>
+						<LI>Then form is filled out and submitted into the controller
+							by you.</LI>
+						<LI>The controller delegates the flow along with login info
+							to a service object.</LI>
+						<LI>Service object decides whether the submitted information
+							is correct in order to let the user log into the system.</LI>
+						<LI>Depending on the information returning from the service
+							the controller chooses one of the four views, i.e. welcome pages,
+							one for each role, to be displayed.</LI>
+						<LI>The controller dispatches the flow to the chosen view.</LI>
+						<LI>The chosen view displays the user information.</LI>
+					</UL>
+				</H4>
+			</td>
+			<td><img src="image/form.png" alt="Login Form" height="300"
+				width="700"></td>
+		</tr>
+		<tr>
+	</table>
+	</P>
+
+	<p>
+		To see the source code please make sure that web init parameters in <a
+			href="SourceCodeServlet?name=org.javaturk.wap.util.SourceCodeServlet">org.javaturk.wap.util.SourceCodeServlet</a>
+		are set correctly:
+	<pre>
+	package org.javaturk.wap.util;
+	...
+	
+	@WebServlet(urlPatterns = { "/SourceCodeServlet" }, initParams = {
+		@WebInitParam(name = "srcDir", value = "/Users/akin/Documents/Java/- Eclipse/Eclipse Mars/workspace/WEB WS/WAP MVC/src"),
+		@WebInitParam(name = "jspDir", value = "/Users/akin/Documents/Java/- Eclipse/Eclipse Mars/workspace/WEB WS/WAP MVC/WebContent/jsp"),
+		@WebInitParam(name = "jsfDir", value = "/Users/akin/Documents/Java/- Eclipse/Eclipse Mars/workspace/WEB WS/WAP MVC/WebContent/jsf"),
+		@WebInitParam(name = "web.xml", value = "/Users/akin/Documents/Java/- Eclipse/Eclipse Mars/workspace/WEB WS/WAP MVC/WebContent/WEB-INF/web.xml") })
+	public class SourceCodeServlet extends HttpServlet {
+		...
+	}
+	</pre>
+	 
+	</p>
+
+	<p>Here are the source code of some common classes & web.xml used
+		in these example.</p>
+	<UL>
+		<LI><a
+			href="SourceCodeServlet?name=org.javaturk.wap.mvc.login.domain.User">User.java</A>
+			Domain object for user.</LI>
+		<LI><a
+			href="SourceCodeServlet?name=org.javaturk.wap.mvc.login.service.LoginService">LoginService.java</A>
+			Service object that actually authenticates the user.</LI>
+		<LI><a href="SourceCodeServlet?name=web.xml">web.xml</A> web.xml
+			of the application.</LI>
+
+	</UL>
+	</p>
+
+	<br />
+	<H3 ALIGN="CENTER">All-Servlet MVC Implementation</H3>
+	In this example all views and controllers implemented as servlets.
+	<P>
+	<UL>
+		<LI><a href="loginForm1.view">Login Form</A>
+			The form is implemented in a servlet.</LI>
+		<LI><a
+			href="SourceCodeServlet?name=org.javaturk.wap.mvc.login.allServlet.LoginController">LoginController</A>
+			The controller servlet uses LoginService to authenticate the user and
+			then uses <code>RequestDispatcher</code> to dispatch requests to
+			chosen view, which is also a servlet. <code>LoginController</code>
+			extends <a
+			href="SourceCodeServlet?name=org.javaturk.wap.mvc.login.controller.AbstractController">AbstractController</a>
+			</LI>
+	</UL>
+	</P>
+
+	<br />
+	<H3 ALIGN="CENTER">Model-1 (Page-centric) MVC Implementation</H3>
+	This implementation is based on
+	<a href="https://en.wikipedia.org/wiki/JSP_model_1_architecture"
+		target="_blank">Model-1</a> architecture. Model-1 takes all-JSP
+	approach to web architecture. So views and controllers are all JSPs.
+	<P>
+	<UL>
+		<LI><a href="loginForm3.view">Login Form</A>
+				The entrance point to the Login application is a <a
+					href="SourceCodeServlet?dir=model1&name=login">JSP</a>. JSP page
+				submits the form to the controller, which is another JSP.
+			</LI>
+		<LI><a href="SourceCodeServlet?dir=model1&name=loginController">LoginControllerJSP</A>
+				The controller, actually a JSP, used for this example. It uses
+				LoginBean to reach LoginService authenticate the user and then uses
+				<code>&lt;jsp:forward&gt; </code>
+				tag to dispatch requests to chosen view, which is another JSP.
+			</LI>
+		<LI><a
+			href="SourceCodeServlet?name=org.javaturk.wap.mvc.login.model1.LoginBean">LoginBean</A>
+			Bean class used in this example.</LI>
+	</UL>
+	</P>
+
+	<br />
+	<H3 ALIGN="CENTER">Model-2 (Servlet-centric) MVC Implementation</H3>
+	This implementation is based on
+	<a
+		href="http://www.javaworld.com/article/2076557/java-web-development/understanding-javaserver-pages-model-2-architecture.html"
+		target="_blank">Model-2</a> architecture. Model-2 utilizes servlets as
+	controllers and JSPs as views. For difference between
+	<b>Model-1</b> and
+	<b>Model-2</b> architectures please have a look at
+	<a
+		href="http://download.oracle.com/otn_hosted_doc/jdeveloper/1012/developing_mvc_applications/adf_aboutmvc2.html"
+		target="_blank">here</a> and
+	<a
+		href="http://www.javatpoint.com/model-1-and-model-2-mvc-architecture"
+		target="_blank">here</a>.
+	<P>
+	<UL>
+		<LI><a href="loginForm2.view">Login Form</A> The entrance point
+			to the Login application is a <a
+			href="SourceCodeServlet?dir=&name=login.jsp">JSP</a>. JSP page
+			submits the form to the controller, which is a servlet.</LI>
+		<LI><a
+			href="SourceCodeServlet?name=org.javaturk.wap.mvc.login.model2.LoginController2">LoginController</A>
+
+			The controller servlet used for this example. It uses <code>LoginService</code>
+			to authenticate the user and then uses <code>RequestDispatcher</code>
+			to dispatch requests to chosen view, which is a JSP. <code>LoginController</code>
+			extends <a
+			href="SourceCodeServlet?name=org.javaturk.wap.mvc.login.controller.AbstractController">AbstractController</a>
+		</LI>
+	</UL>
+	</P>
+
+	<br />
+	<H3 ALIGN="CENTER">JSF MVC Implementation</H3>
+	In this example all views are implemented as JSF pages and the
+	controller is JSF's front configured & thus transparent controller.
+	<P>
+	<UL>
+		<LI><a href="jsf/login.xhtml">Login Form</A> The entrance point
+			to the Login application is a <a
+			href="SourceCodeServlet?dir=jsf&name=login.xhtml">JSF page</a>. JSF
+			page submits the form to itself through the front controller which
+			binds controls in the JSF page to a managed bean, <code>LoginBean</code>
+			, referred in the page.</LI>
+
+		<LI><a
+			href="SourceCodeServlet?name=org.javaturk.wap.mvc.login.jsf.LoginBean">LoginBean</A>
+			Managed bean used for this example.</LI>
+	</UL>
+
+	<br />
+	<H3 ALIGN="CENTER">Spring MVC Implementation</H3>
+	In this example all views are implemented as JSP pages and the
+	controller is Spring's controller.
+	<P>
+	<UL>
+
+		<LI><a href="jsp/spring/login.jsp">Login Form</A> The entrance
+			point to the Login application is a <a
+			href="SourceCodeServlet?dir=spring&name=login.jsp">JSP</a>. JSP page
+			submits the form to the controller, which is a Spring controller.</LI>
+
+		<LI><a
+			href="SourceCodeServlet?name=org.javaturk.wap.mvc.login.spring.SpringLoginController">SpringLoginController</A>
+			Spring's controller class used for this example.</LI>
+	</UL>
+	</P>
+	</br>
+</body>
+</html>

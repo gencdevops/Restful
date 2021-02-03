@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>WAP MVC</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>WelcomeAdmin</servlet-name>
+		<jsp-file>/jsp/welcomeAdmin.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WelcomeAdmin</servlet-name>
+		<url-pattern>/welcomeAdminJSP.view</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>WelcomeBranchUser</servlet-name>
+		<jsp-file>/jsp/welcomeBranchUser.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WelcomeBranchUser</servlet-name>
+		<url-pattern>/welcomeBranchUserJSP.view</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>WelcomePowerUser</servlet-name>
+		<jsp-file>/jsp/welcomePowerUser.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WelcomePowerUser</servlet-name>
+		<url-pattern>/welcomePowerUserJSP.view</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>WelcomeDepartmentUser</servlet-name>
+		<jsp-file>/jsp/welcomeDepartmentUser.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WelcomeDepartmentUser</servlet-name>
+		<url-pattern>/welcomeDepartmentUserJSP.view</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>loginForm2</servlet-name>
+		<jsp-file>/jsp/login.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>loginForm2</servlet-name>
+		<url-pattern>/loginForm2.view</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>loginForm3</servlet-name>
+		<jsp-file>/jsp/model1/login.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>loginForm3</servlet-name>
+		<url-pattern>/loginForm3.view</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>loginControllerJSP</servlet-name>
+		<jsp-file>/jsp/model1/loginController.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>loginControllerJSP</servlet-name>
+		<url-pattern>/loginJSP.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>loginForm4</servlet-name>
+		<jsp-file>/jsp/spring/login.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>loginForm4</servlet-name>
+		<url-pattern>/loginForm4.view</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- The definition of the Root Spring Container shared by all Servlets 
+		and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Processes application requests -->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/spring/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>client</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>resources.application</param-value>
+	</context-param>
+	<listener>
+		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+	</listener>
+</web-app>

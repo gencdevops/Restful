@@ -1,0 +1,12 @@
+{
+	"id":123,
+	"name":"İsmail Sarılı",
+	"permanent":true,
+	"address":{
+			"street":"Sefa Cad. No 22",
+			"city":"Ayvalik",
+			"zipcode":10400
+		},
+	"phoneNumbers":[9988664422, 1234567890],
+	"sex":"Male"
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+p.big {
+	line-height: 2;
+}
+</style>
+<title>Greeting RESTful Service</title>
+</head>
+<body>
+	<h1 style="text-align: center;">Greeting RESTful Service</h1>
+	<h2 style="text-align: center;">REST Endpoints</h2>
+	
+	<h3 style="text-align: center; color: red;">
+		<b>DefaultGreetingResource</b>
+	</h3>
+
+	<h4 align="center">
+		<p class="big">
+			<a href="resources/defaultGreetings/count">GET greeting count</a>
+			</br>
+			<a href="resources/defaultGreetings">GET all greetings</a>
+			</br>
+			<a href="resources/defaultGreetings/objects">GET all greeting objects as JSON. Pass the request with Accept:
+				application/json</a>
+			</br>
+			<a href="resources/defaultGreetings/objects">GET all greeting objects as XML. Pass the request with Accept:
+				application/xml</a>
+			</br>
+			<a href="resources/defaultGreetings/objectsJSONorXML">GET all greeting objects as JSON or XML depending on
+				request's Accept header.</a> Pass the request with <i>Accept: application/json</i> or <i>Accept: application/xml</i> <a
+				href="resources/defaultGreetings/languages"
+			>GET all languages</a>
+			</br>
+			<a href="resources/defaultGreetings/language">GET the greeting for given <i>language</i>
+			</a> such as <a href="resources/defaultGreetings/turkish">resources/greetings/turkish</a>
+			</br>
+			<a href="resources/defaultGreetings/language">POST a new greeting using <i>language</i> and <i>greeting</i></a> such
+			as <a href="resources/greetings/arabic/assalamuualaikum">resources/defaultGreetings/arabic/assalamualaikum.</a>
+			</br>
+		</p>
+	</h4>
+
+
+	<h3 style="text-align: center; color: red;">
+		<b>GreetingResource</b>
+	</h3>
+
+	<h4 align="center">
+		<p class="big">
+			<a href="resources/greetings/count">GET greeting count</a>
+			</br>
+			<a href="resources/greetings">GET all greetings</a>
+			</br>
+			<a href="resources/greetings/objects">GET all greeting objects as JSON. Pass the request with Accept:
+				application/json</a>
+			</br>
+			<a href="resources/greetings/objects">GET all greeting objects as XML. Pass the request with Accept:
+				application/xml</a>
+			</br>
+			<a href="resources/greetings/objectsJSONorXML">GET all greeting objects as JSON or XML depending on request's
+				Accept header.</br> Pass the request with <i>Accept: application/json</i> or <i>Accept: application/xml</i>
+			</a> <a href="resources/greetings/languages">GET all languages</a>
+			</br>
+			<a href="resources/greetings/language/1">GET the greeting for given <i>language</i>
+			</a> such as <a href="resources/greetings/turkish/1">resources/greetings/turkish/1</a>
+			</br>
+			<a href="resources/greetings/language/2">GET the greeting for given <i>language</i>
+			</a> such as <a href="resources/greetings/turkish/2">resources/greetings/turkish/2</a>
+			</br>
+			<a href="resources/greetings/language">POST a new greeting using <i>language</i> and <i>greeting</i></a> such as <a
+				href="resources/greetings/arabic/assalamuualaikum"
+			>resources/greetings/arabic/assalamualaikum.</a>
+			</br>
+			<a href="resources/greetings/language/greeting">PUT an existing greeting with new using <i>language</i> and <i>greeting</i>
+			</a>
+			</br>
+		</p>
+	</h4>
+</body>
+</html>

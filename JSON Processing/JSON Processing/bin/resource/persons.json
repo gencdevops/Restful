@@ -1,0 +1,47 @@
+[
+	{
+		"id": 123,
+		"name": "İsmail Sarılı",
+		"permanent": true,
+		"address": {
+			"street": "Sefa Cad. No 22",
+			"city": "Ayvalik",
+			"zipcode": 10400
+		},
+		"phoneNumbers": [
+			9988664422,
+			1234567890
+		],
+		"sex": "Male"
+	},
+	{
+		"id": 345,
+		"name":"Süleyman Ünlü",
+		"permanent": false,
+		"address": {
+			"street": "Cumhuriyet Cad. No 76",
+			"city": "İstanbul",
+			"zipcode": 34664
+		},
+		"phoneNumbers": [
+			9876543210,
+			1357913579
+		],
+		"sex": "Male"
+	},
+	{
+		"id": 456,
+		"name": "Hülya Mert",
+		"permanent": true,
+		"address": {
+			"street": "Sefa Cad. No 22",
+			"city": "İzmir",
+			"zipcode": 35000
+		},
+		"phoneNumbers": [
+			2468024680,
+			1234567890
+		],
+		"sex": "Female"
+	}
+]

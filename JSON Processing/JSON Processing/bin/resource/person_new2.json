@@ -1,0 +1,15 @@
+{
+	"id": 22,
+	"name": "John Flier",
+	"permanent": true,
+	"phoneNumbers": [
+		1234567890,
+		9876543210
+	],
+	"Address": {
+		"street": "Vatan Cad. No 55/3",
+		"city": "Istanbul",
+		"zipcode": "34664"
+	},
+	"sex": "Male"
+}

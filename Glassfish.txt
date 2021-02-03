@@ -1,0 +1,32 @@
+Download Glassfish Full Profile at
+https://projects.eclipse.org/projects/ee4j.glassfish/downloads
+
+Unzip it anywhere you want.
+Make sure that Java 8 is available for Glassfish. It gives error with newer versions of Java.
+
+Go to Glassfish 5.1 installation's bin directory
+/Users/akin/Java/Glassfish/glassfish5.1/glassfish/bin
+
+To launch Glassfish type and enter
+./startserv
+
+Then go to http://localhost:8080 check to see if it is running.
+Then go to http://localhost:4848 for admin console
+
+******************************************************
+To use Glassfish with Eclipse, first install Glassfish Tools from following update site:
+https://download.eclipse.org/glassfish-tools/1.0.1/repository/
+(or go to https://projects.eclipse.org/projects/webtools.glassfish-tools/downloads to download Glassfish Tools)
+Use only Java SE 8 for Glassfish 5.
+******************************************************
+asadmin is Glassfish's admin interface
+Go to /Users/akin/Java/Glassfish/glassfish5/glassfish/bin and type "./asadmin --host localhost --port 4848"
+For JNDI entries
+
+>list-jndi-entries
+
+For JNDI entries in a specific context for example for "java:global"
+>list-jndi-entries --context java:global
+******************************************************
+
+
